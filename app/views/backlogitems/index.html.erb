@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_backlogitem_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Backlogitem
+  <% end %>
+  <h1>Listing backlogitems</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Size</th>
+            <th>Targetdate</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @backlogitems) do |backlogitem| %>
+            <td><%= backlogitem.name %></td>
+            <td><%= backlogitem.description %></td>
+            <td><%= backlogitem.size %></td>
+            <td><%= backlogitem.targetdate %></td>
+            <td><%= link_to 'Show', backlogitem %></td>
+        <td><%= link_to 'Edit', edit_backlogitem_path(backlogitem) %></td>
+        <td><%= link_to 'Destroy', backlogitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :after_signup
   
   authenticated :user do
-  	root to: "users#index", as: :authenticated_root
+  	root to: "backlogitems#index", as: :authenticated_root
   end
 
   unauthenticated do
@@ -10,5 +12,6 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :users
-  
+  resources :backlogitems
+
 end
